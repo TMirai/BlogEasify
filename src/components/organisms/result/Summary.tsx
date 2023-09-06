@@ -1,8 +1,9 @@
 //生成したサマリーを持ってきて表示するためのコンポーネント
-import { WrapItem, Box, Spinner, Heading, Wrap, useClipboard, Button, Stack, Flex, Input, Textarea, Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react"
+import { WrapItem, Box, Spinner, Heading, Wrap, useClipboard, Button, Stack, Flex, Alert, AlertIcon, AlertTitle, AlertDescription, Image, Img } from "@chakra-ui/react"
 import { memo, useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import { Text } from "../../store/Text"
+import wait from "../../../../src/images/wait.png"
 
 export const Summary = memo(() => {
     const [ polling, setPolling ] = useState<boolean>(false);
@@ -63,11 +64,11 @@ export const Summary = memo(() => {
                 <Heading as="h1" size="lg" textAlign="center">要約</Heading>
                 <Wrap p={{ base: 4, md: 10 }}>
                     <WrapItem>
-                        <Flex mb={2}>
-                            <Stack spacing={6} py={4} px={10}>
+                        <Flex mb={2} alignItems="center" flexDirection="column">
+                            {/* <Stack spacing={6} py={4} px={10} alignItems="center" flexDirection="column"> */}
                                 <p>{value}</p>
                                 <Button size='xs' bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onCopy}>{hasCopied ? "コピーしたよ!" : "コピー"}</Button>
-                            </Stack>
+                            {/* </Stack> */}
                         </Flex>
                     </WrapItem>
                 </Wrap>
@@ -81,7 +82,17 @@ export const Summary = memo(() => {
                     <AlertDescription>Your Chakra experience may be degraded.</AlertDescription>
                 </Alert>
                 ) : (
-                <Spinner />
+                    <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
+                        <Heading as="h1" size="lg" textAlign="center">要約</Heading>
+                        <Wrap p={{ base: 4, md: 10 }}>
+                            <WrapItem>
+                                <Flex mb={2} alignItems="center" flexDirection="column">
+                                    <Img src={wait} boxSize='60%' />
+                                </Flex>
+                            </WrapItem>
+                        </Wrap>
+                    </Box>
+                //<Spinner />
                 )
             }
             </>

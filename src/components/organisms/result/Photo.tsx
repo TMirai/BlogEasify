@@ -2,6 +2,9 @@
 import { WrapItem, Box, Stack, Image, Spinner, Flex, Button } from "@chakra-ui/react"
 import { memo, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { Title } from "../../store/Title";
+import { useRecoilState } from "recoil";
+import { Edit, Editurl } from "../../store/Edit";
 
 type PhotoType = {
     url: string;
@@ -9,13 +12,18 @@ type PhotoType = {
 
 export const Photo = memo((props:PhotoType) => {
     const [ polling, setPolling ] = useState<boolean>(true);
+    const [ edit, setEdit ] = useRecoilState(Edit);
+    const [ editurl, setEditurl ] =useRecoilState(Editurl);
     const { url } = props;
     const navigate = useNavigate();
     const onClickEdit = () => {
-        navigate("/result/edit", { state: {url}  });
+        // navigate("/result/edit", { state: {url}  });
+        setEdit(true)
+        setEditurl(url)
     }
 
     const onClickDownload = async () => {
+        // console.log(url)
         const response = await fetch(url);
         const blob = await response.blob();
         const newBlob = new Blob([blob]);
@@ -28,24 +36,6 @@ export const Photo = memo((props:PhotoType) => {
         window.URL.revokeObjectURL(objUrl);
         }, 250);
     };
-
-    useEffect(() => {
-        (async() => {
-            const apiUrl = 'http://44.210.108.10:8080/vectorapp'
-            const requestOptions ={
-                method: 'POST',
-                headers:{'Content-Type': 'application/json'},
-                body: JSON.stringify({prompt: "機械学習", num: 4})
-            };
-            const res = await fetch(apiUrl, requestOptions); //バックエンドにPOSTしてる
-            console.log("aaa")
-            const j = await res.json(); //POSTして返ってきたやつ
-            console.log(j.urls)
-            setPolling(true);
-        })();
-    },[]);
-
-
 
     return(
         <>
