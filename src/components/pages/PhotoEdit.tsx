@@ -23,7 +23,7 @@ export const PhotoEdit = memo(() => {
         const image = new Image();
         // image.setAttribute('width', "5px");
         // image.setAttribute('height', "5px");
-        // image.crossOrigin = "Anonymous";
+        image.crossOrigin = "Anonymous";
         // image.src = "https://source.unsplash.com/random"
         // image.src = wait
         // image.src = "https://blog-easify-background-images.s3.us-east-1.amazonaws.com/4.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEID%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0xIkYwRAIgEetGJ6M6EjjmC3OkPkXq2AMiaM63zGcF6gZz7bSsVLYCIFtEiYT5U%2Bl25pAyAL%2BtBuf0WodatlY4rKXX0yJAKh%2BdKuYCCFoQABoMMzM3Njg1MDU5MDM5Igy%2BzAlwOSkcmBDzwjcqwwLP7RLXbzAYrJJP6VpS57iAUgjqljCMxieYjYNXmBX%2FIc%2FlAoyA0mL0bCDQsqmkOA2CdC2p7OX97OSzKAtmbwGb%2FgVQfzAtJBG4hfynV%2FTv9SL0jl4Z4xUQ%2F2CVsTBy34iwbTgYodH9I7XkmY9jeNMdlVWaQ7X1G%2BZuff2XCRwVOJZTFRhW%2BCh6yKzuksFG9%2FjwR62sTgwP7eI%2BaAAoyHGKcnApL8utuJo58LGoLDFquG%2FCYbKYGOFvaKj23rqSSnX2FoqGOyvVLz4GgQYg1JKYBX5YuYscmbIYPHWWKOOvKD8rO3aPOguOWE8VW1AZ0C7gr%2FnjEKA8iVEYf4nA%2FoOmztTLq%2FrBfQ7Iw%2FPLmvRKPzMj98DFaK452US9WuEcAkkPgfM%2B9lr%2FMsrqor1TGckJN43MeFxJ052h9PWGJF84fWCvLjCr%2F9qnBjqIAkVv5XSdOnAZ15ezEG2Y7fHDCno1ptma7JvHPpGrxAMomuaLlYUcdqkSfog%2BszvKU9%2FEbc5yz1scaXyvLsK1G7Olb%2BacPMNROWrRbtMxkr3VE9bAZ%2FjzHzinW0jxrXNEN%2BTZIPwMLmeFMWhFHGGkI2vGjpa8idqwRsQY4VsMYPva3QPHvesMN%2FcEBnxT%2Bd6DQIP4o52HcZazgKoQdZ%2Fj1SyCV6PXrzlDF8rRh0JIEF14Ampo4iy5nWFjN3YX%2BP9sawbaa6Gy5XjgBe1hWZLK5ae%2Bg61Dg%2F2sO4GyKo59Hp39oqEeIVsjRs0LHfXWdtk9udU0zabN%2BlV1jsk4y3hRJE5R0YLWJ4S2sg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230905T105258Z&X-Amz-SignedHeaders=host&X-Amz-Expires=720&X-Amz-Credential=ASIAU5H4ZCXPZMBW4MYH%2F20230905%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=666d18866cc0bdf2d9f1261cdb7c6e440185b800ff5ff9eb438981db08ebde05";
@@ -53,9 +53,9 @@ export const PhotoEdit = memo(() => {
         } 
         let y = canvas.height/2;
         if(positionvalue == 'up'){
-            y = 30;
+            y = 50;
         }else if(positionvalue == "down"){
-            y = 300;
+            y = 350;
         }
 
         const txw = ctx.measureText(text);
@@ -74,101 +74,6 @@ export const PhotoEdit = memo(() => {
     const onClickBack = () => {
         setEdit(false);
     }
-
-    // function onClickonTitleReverse(){
-    //     const canvas:any = canvasRef.current;
-    //     const ctx = canvas.getContext('2d');
-    //     setFontColor('#000');
-    //     setBackColor("#fff");
-    //     const fontColor = '#000';
-    //     const backgroundColor = "#fff";
-    //     const txw = ctx.measureText(text);
-    //     ctx.font = '25px';
-    //     // 背景を描画
-    //     ctx.fillStyle = backgroundColor;
-    //     ctx.fillRect((canvas.width - txw.width) / 2 - 5, y-30, txw.width + 10, 50);
-    //     ctx.fillStyle = fontColor;
-    //     ctx.textBaseline = 'center';
-    //     ctx.textAlign = 'center';
-    //     const x = canvas.width / 2;
-    //     ctx.fillText(text, x, y);
-    // }
-
-    // const onClickonTitle = () =>{
-    //     //キャンバスにテキストを描画する
-    //     const canvas:any = canvasRef.current;
-    //     const ctx = canvas.getContext('2d');
-    //     setFontColor("#fff");
-    //     setBackColor('#000')
-    //     const fontColor = "#fff";
-    //     const backgroundColor = '#000';
-    //     const txw = ctx.measureText(text);
-    //     ctx.font = '25px';
-    //     // 背景を描画
-    //     ctx.fillStyle = backgroundColor;
-    //     ctx.fillRect((canvas.width - txw.width) / 2 - 5, y-30, txw.width + 10, 50);
-    //     ctx.fillStyle = fontColor;
-    //     ctx.textBaseline = 'center';
-    //     ctx.textAlign = 'center';
-    //     const x = canvas.width / 2;
-    //     ctx.fillText(text, x, y);
-    // }
-    // const onClickLetterUp = () =>{
-    //     const canvas:any = canvasRef.current;
-    //     const ctx = canvas.getContext('2d');
-    //     const fontColor = fontcolor;
-    //     const backgroundColor = backcolor;
-    //     const txw = ctx.measureText(text);
-    //     ctx.font = '25px';
-    //     // 背景を描画
-    //     setY(30);
-    //     const inY = 30;
-    //     ctx.fillStyle = backgroundColor;
-    //     ctx.fillRect((canvas.width - txw.width) / 2 - 5, inY-30, txw.width + 10, 50);
-    //     ctx.fillStyle = fontColor;
-    //     ctx.textBaseline = 'center';
-    //     ctx.textAlign = 'center';
-    //     const x = canvas.width / 2;
-    //     ctx.fillText(text, x, y);
-    // }
-
-    // const onClickLetterDown = () =>{
-    //     const canvas:any = canvasRef.current;
-    //     const ctx = canvas.getContext('2d');
-    //     const fontColor = fontcolor;
-    //     const backgroundColor = backcolor;
-    //     const txw = ctx.measureText(text);
-    //     ctx.font = '25px';
-    //     // 背景を描画
-    //     setY(300);
-    //     const inY = 300;
-    //     ctx.fillStyle = backgroundColor;
-    //     ctx.fillRect((canvas.width - txw.width) / 2 - 5, inY-30, txw.width + 10, 50);
-    //     ctx.fillStyle = fontColor;
-    //     ctx.textBaseline = 'center';
-    //     ctx.textAlign = 'center';
-    //     const x = canvas.width / 2;
-    //     ctx.fillText(text, x, y);
-    // }
-
-    // const onClickLetterCenter = () =>{
-    //     const canvas:any = canvasRef.current;
-    //     const ctx = canvas.getContext('2d');
-    //     const fontColor = fontcolor;
-    //     const backgroundColor = backcolor;
-    //     const txw = ctx.measureText(text);
-    //     ctx.font = '25px';
-    //     // 背景を描画
-    //     setY(canvas.height/2);
-    //     const inY = canvas.height/2;
-    //     ctx.fillStyle = backgroundColor;
-    //     ctx.fillRect((canvas.width - txw.width) / 2 - 5, inY-30, txw.width + 10, 50);
-    //     ctx.fillStyle = fontColor;
-    //     ctx.textBaseline = 'center';
-    //     ctx.textAlign = 'center';
-    //     const x = canvas.width / 2;
-    //     ctx.fillText(text, x, y);
-    // }
 
     useEffect(() => {
         // 初回描画
