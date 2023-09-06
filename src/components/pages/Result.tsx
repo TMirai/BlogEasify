@@ -39,7 +39,7 @@ export const Result= memo(() => {
                         <PhotoEdit />
                     </>
                 ):(
-                    <Wrap p={{ base: 4, md: 10 }}>
+                <Wrap p={{ base: 4, md: 10 }}>
                     <Photo url={photourls[0]}/>
                     <Photo url={photourls[1]}/>
                     <Photo url={photourls[2]}/>

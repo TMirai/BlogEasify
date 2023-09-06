@@ -5,12 +5,12 @@ import App from './App';
 import { Amplify } from "aws-amplify";
 
 
-const region = "ap-northeast-1";
-const userPoolId = "ap-northeast-1_stz2rOwbI";
-const clientId = "6vv602fp5rgthue96flath4o57";
-const domain = "blogeasify-midway.auth.ap-northeast-1.amazoncognito.com";
-const signInUrl = "http://localhost:3000";
-const signOutUrl = "http://localhost:3000";
+const region = "us-east-1";
+const userPoolId = "us-east-1_2kudVytpo";
+const clientId = "7l48al6pkcuafa4tjrhmpnm37a";
+const domain = "blogeasify-midway.auth.us-east-1.amazoncognito.com";
+const signInUrl = "https://main.d2tb1qkxq86h6t.amplifyapp.com";
+const signOutUrl = "https://main.d2tb1qkxq86h6t.amplifyapp.com";
 
 const awsExports = {
   Auth: {

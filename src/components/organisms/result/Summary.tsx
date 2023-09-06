@@ -40,22 +40,22 @@ export const Summary = memo(() => {
     }
     
 
-    useEffect(() => {
-        (async() => {
-            const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-async'
-            const requestOptions ={
-                method: 'POST',
-                headers:{'Content-Type': 'application/json'},
-                body: JSON.stringify({content: {inputtext}})
-            };
-            const res = await fetch(apiUrl, requestOptions); //バックエンドにPOSTしてる
-            const j = await res.json(); //POSTして返ってきたやつ
-            const sumurl = await poling(j); //要約のURL
-            setValue(sumurl);
-            setPolling(true);
+    // useEffect(() => {
+    //     (async() => {
+    //         const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-async'
+    //         const requestOptions ={
+    //             method: 'POST',
+    //             headers:{'Content-Type': 'application/json'},
+    //             body: JSON.stringify({content: {inputtext}})
+    //         };
+    //         const res = await fetch(apiUrl, requestOptions); //バックエンドにPOSTしてる
+    //         const j = await res.json(); //POSTして返ってきたやつ
+    //         const sumurl = await poling(j); //要約のURL
+    //         setValue(sumurl);
+    //         setPolling(true);
             
-        })();
-    },[]);
+    //     })();
+    // },[]);
 
     return(
         <>
