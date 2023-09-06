@@ -17,7 +17,7 @@ export const Result= memo(() => {
 
     useEffect(() => {
         (async() => {
-            const apiUrl = '//44.210.108.10:8080/vectorapp'
+            const apiUrl = 'http//44.210.108.10:8080/vectorapp'
             const requestOptions ={
                 method: 'POST',
                 headers:{'Content-Type': 'application/json'},
@@ -25,6 +25,7 @@ export const Result= memo(() => {
             };
             const res = await fetch(apiUrl, requestOptions); //バックエンドにPOSTしてる
             const j = await res.json(); //POSTして返ってきたやつ
+            console.log(j)
             setPhotourls([...photourls, j.urls[0], j.urls[1], j.urls[2], j.urls[3], j.urls[4], j.urls[5], j.urls[6], j.urls[7], j.urls[8], j.urls[9]])
         })();
     },[]);
