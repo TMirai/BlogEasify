@@ -84,13 +84,13 @@ export const Summary = memo(() => {
                 ) : (
                     <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
                         <Heading as="h1" size="lg" textAlign="center">要約</Heading>
-                        <Wrap p={{ base: 4, md: 10 }}>
-                            <WrapItem>
+                        {/* <Wrap p={{ base: 4, md: 10 }}> */}
+                            {/* <WrapItem> */}
                                 <Flex mb={2} alignItems="center" flexDirection="column">
                                     <Img src={wait} boxSize='60%' />
                                 </Flex>
-                            </WrapItem>
-                        </Wrap>
+                            {/* </WrapItem> */}
+                        {/* </Wrap> */}
                     </Box>
                 //<Spinner />
                 )

@@ -17,7 +17,7 @@ export const Result= memo(() => {
 
     useEffect(() => {
         (async() => {
-            const apiUrl = 'http//44.210.108.10:8080/vectorapp'
+            const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/vectorapp'
             const requestOptions ={
                 method: 'POST',
                 headers:{'Content-Type': 'application/json'},
