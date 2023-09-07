@@ -38,9 +38,7 @@
 }
 
 .midway-img-circle {
-  border-radius:50%;
-  width: 35px;
-  height: 30px;
+  height: 40px;
 }
 
 @media (max-width: 800px) {
