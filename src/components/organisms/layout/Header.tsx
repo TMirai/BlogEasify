@@ -4,7 +4,11 @@ import { MenuIconButton } from "../../atoms/button/MenuLconButton";
 import { MenuDrawer } from "../../molecules/MenuDrawer";
 import { useNavigate } from "react-router-dom";
 
-export const Header: FC = memo(() => {
+type Props = {
+    alias: string
+}
+
+export const Header: FC<Props> = memo(({alias}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const navigate = useNavigate();
     const onClickHome = useCallback( () => navigate("/"), []);
@@ -12,26 +16,31 @@ export const Header: FC = memo(() => {
 
     return (
         <>
-        <Flex 
-        as="nav" 
-        bg="teal.500" 
-        color="gray.50" 
-        align="center" 
-        justify="space-between"
-        padding={{ base: 3, md: 5 }}
-        >
-            <Flex align="center" as="a" mr={8} _hover={{ cursor: "pointer" }}>
-                <Heading as="h1" fontSize={{base: "md", md: "lg"}}>BlogEasify</Heading>
+            <Flex 
+            as="nav" 
+            bg="teal.500" 
+            color="gray.50" 
+            align="center" 
+            justify="space-between"
+            padding={{ base: 3, md: 5 }}
+            >
+                <Flex align="center" as="a" mr={8} _hover={{ cursor: "pointer" }}>
+                    <Heading as="h1" fontSize={{base: "md", md: "lg"}}>BlogEasify</Heading>
+                </Flex>
+                <Flex align="center" fontSize="sm" flexGrow={2} display={{ base: "none", md: "flex" }}>
+                    <Box pr={4}>
+                        <Link onClick={onClickHome}>作成</Link>
+                    </Box>
+                    <Link onClick={onClickSetting}>設定</Link>
+                </Flex>
+                <MenuIconButton onOpen={onOpen}/>
+                <img
+                    src={`https://internal-cdn.amazon.com/badgephotos.amazon.com/?uid=${alias}`}
+                    alt="alias"
+                    className="midway-img-circle"
+                />
             </Flex>
-            <Flex align="center" fontSize="sm" flexGrow={2} display={{ base: "none", md: "flex" }}>
-                <Box pr={4}>
-                    <Link onClick={onClickHome}>作成</Link>
-                </Box>
-                <Link onClick={onClickSetting}>設定</Link>
-            </Flex>
-            <MenuIconButton onOpen={onOpen}/>
-        </Flex>
-        <MenuDrawer onClose={onClose} isOpen={isOpen} onClickHome={onClickHome} onClickSetting={onClickSetting}/>
+            <MenuDrawer onClose={onClose} isOpen={isOpen} onClickHome={onClickHome} onClickSetting={onClickSetting}/>
         </>
     )
 })

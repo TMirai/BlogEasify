@@ -6,38 +6,19 @@ import { HeaderLayout } from "../templates/HeaderLayout";
 import { Setting } from "../pages/Setting";
 import { PhotoEdit } from "../pages/PhotoEdit";
 
-export const Routers: FC = memo(() => {
+type Props = {
+    alias: string
+}
+
+export const Routers: FC<Props> = memo(({alias}) => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<><HeaderLayout /><Home /> </>}/>
-                <Route path="/setting" element={<><HeaderLayout /><Setting /></>}/>
-                <Route path="/result" element={<><HeaderLayout /><Result /></>}/>
-                <Route path="/result/edit" element={<><HeaderLayout /><PhotoEdit /></>}/>
+                <Route path="/" element={<><HeaderLayout alias={alias} /><Home /> </>}/>
+                <Route path="/setting" element={<><HeaderLayout alias={alias} /><Setting /></>}/>
+                <Route path="/result" element={<><HeaderLayout alias={alias} /><Result /></>}/>
+                <Route path="/result/edit" element={<><HeaderLayout alias={alias} /><PhotoEdit /></>}/>
             </Routes>
         </BrowserRouter>
     )
 })
-
-
-
-{/* <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<><HeaderLayout /><Home /> </>}/>
-            </Routes>
-            <Routes>
-                <Route path="/setting" element={<><HeaderLayout /><Setting /></>}/>
-            </Routes>
-            <Routes>
-                <Route path="/result" element={<><HeaderLayout /><Result /></>}/>
-                    <Route path="/result" element={<><HeaderLayout /><Result /></>}/>
-            </Routes>
-            <Routes>
-                <Route path="/result/edit" element={
-                    <>
-                        <HeaderLayout />
-                        <PhotoEdit />
-                    </>
-                }/>
-            </Routes>
-        </BrowserRouter> */}

@@ -1,10 +1,14 @@
 import { memo, FC } from "react";
 import { Header } from "../organisms/layout/Header";
 
-export const HeaderLayout: FC = memo(() => {
+type Props = {
+    alias: string
+}
+
+export const HeaderLayout: FC<Props> = memo(({alias}) => {
     return (
         <>
-            <Header />
+            <Header alias={alias} />
         </>
     )
 }
