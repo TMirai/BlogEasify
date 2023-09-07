@@ -17,7 +17,7 @@ export const Routers: FC<Props> = memo(({alias}) => {
                 <Route path="/" element={<><HeaderLayout alias={alias} /><Home /> </>}/>
                 <Route path="/setting" element={<><HeaderLayout alias={alias} /><Setting /></>}/>
                 <Route path="/result" element={<><HeaderLayout alias={alias} /><Result /></>}/>
-                <Route path="/result/edit" element={<><HeaderLayout alias={alias} /><PhotoEdit /></>}/>
+                {/* <Route path="/result/edit" element={<><HeaderLayout alias={alias} /><PhotoEdit /></>}/> */}
             </Routes>
         </BrowserRouter>
     )

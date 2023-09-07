@@ -60,7 +60,7 @@ export const Summary = memo(() => {
     return(
         <>
         {polling? (
-            <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
+            <Box bg="white" p={4} borderRadius="md" shadow="md" width="98%">
                 <Heading as="h1" size="lg" textAlign="center">要約</Heading>
                 {/* <Wrap p={{ base: 4, md: 10 }}> */}
                     {/* <WrapItem> */}
