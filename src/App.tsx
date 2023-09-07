@@ -49,14 +49,9 @@ const App = () => {
         <p>Now Loading...</p>
       ) : (
         <>
-          {/* <img
-            src={`https://internal-cdn.amazon.com/badgephotos.amazon.com/?uid=${alias}`}
-            alt="alias"
-          />
-          <button onClick={signOut}>Sign Out</button> */}
           <RecoilRoot>
             <ChakraProvider>
-              <Routers />
+              <Routers alias={alias} />
             </ChakraProvider>
           </RecoilRoot>
         </>
@@ -65,17 +60,4 @@ const App = () => {
   );
 }
 
-// const App = () => {
-//   return (
-//     <RecoilRoot>
-//       <ChakraProvider>
-//           <Routers />
-//       </ChakraProvider>
-//     </RecoilRoot>
-//   )
-// }
-
-
 export default App;
-
-

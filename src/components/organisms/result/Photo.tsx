@@ -43,7 +43,7 @@ export const Photo = memo((props:PhotoType) => {
             <WrapItem>
                 <Box w="260px" h="260px" >
                     <Stack textAlign="center">
-                        <Image w="260px" h="146px" src={url} m="auto" />
+                        <Image w="260px" h="146px" src={url} m="auto" crossOrigin="anonymous" />
                         <Flex align="center" fontSize="sm" flexGrow={2}>
                             <Box pr={4}>
                             <Button size='xs' bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onClickEdit}>編集</Button>

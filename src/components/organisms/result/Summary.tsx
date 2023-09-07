@@ -60,14 +60,14 @@ export const Summary = memo(() => {
     return(
         <>
         {polling? (
-            <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
+            <Box bg="white" p={4} borderRadius="md" shadow="md" width="98%">
                 <Heading as="h1" size="lg" textAlign="center">要約</Heading>
                 {/* <Wrap p={{ base: 4, md: 10 }}> */}
                     {/* <WrapItem> */}
                         <Flex mb={2} alignItems="center" flexDirection="column">
                             {/* <Stack spacing={6} py={4} px={10} alignItems="center" flexDirection="column"> */}
-                                <p>{value}</p>
-                                <Button size='xs' bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onCopy}>{hasCopied ? "コピーしたよ!" : "コピー"}</Button>
+                                <p style={{marginTop: '20px'}}>{value}</p>
+                                <Button m={3} size='xs' bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onCopy}>{hasCopied ? "コピーしたよ!" : "コピー"}</Button>
                             {/* </Stack> */}
                         </Flex>
                     {/* </WrapItem> */}
@@ -83,7 +83,6 @@ export const Summary = memo(() => {
                 </Alert>
                 ) : (
                     <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
-                        <Heading as="h1" size="lg" textAlign="center">要約</Heading>
                         {/* <Wrap p={{ base: 4, md: 10 }}> */}
                             {/* <WrapItem> */}
                                 <Flex mb={2} alignItems="center" flexDirection="column">
