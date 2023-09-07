@@ -12,6 +12,7 @@ import { PhotoEdit } from "./PhotoEdit";
 export const Result= memo(() => {
     const [ inputtitle, setInputtitle ] = useRecoilState(Title);
     const [ photourls, setPhotourls ] = useState<string[]>([]);
+    const [ defaultphotourls, setDefaultPhotourls ] = useState<string[]>([]);
     const [ edit, setEdit ] = useRecoilState(Edit);
     const [ editurl, setEditurl ] =useRecoilState(Editurl);
 
@@ -25,8 +26,8 @@ export const Result= memo(() => {
             };
             const res = await fetch(apiUrl, requestOptions); //バックエンドにPOSTしてる
             const j = await res.json(); //POSTして返ってきたやつ
-            console.log(j)
-            setPhotourls([...photourls, j.urls[0], j.urls[1], j.urls[2], j.urls[3], j.urls[4], j.urls[5], j.urls[6], j.urls[7], j.urls[8], j.urls[9]])
+            setPhotourls([...photourls, j.generate[0], j.generate[1], j.generate[2], j.generate[3], j.generate[4], j.generate[5], j.generate[6], j.generate[7], j.generate[8], j.generate[9]])
+            setDefaultPhotourls([...defaultphotourls, j.aws_default[0], j.aws_default[1], j.aws_default[2]])
         })();
     },[]);
 
@@ -40,18 +41,26 @@ export const Result= memo(() => {
                         <PhotoEdit />
                     </>
                 ):(
-                <Wrap p={{ base: 4, md: 10 }}>
-                    <Photo url={photourls[0]}/>
-                    <Photo url={photourls[1]}/>
-                    <Photo url={photourls[2]}/>
-                    <Photo url={photourls[3]}/>
-                    <Photo url={photourls[4]}/>
-                    <Photo url={photourls[5]}/>
-                    <Photo url={photourls[6]}/>
-                    <Photo url={photourls[7]}/>
-                    <Photo url={photourls[8]}/>
-                    <Photo url={photourls[9]}/>
-                </Wrap>
+                    <>
+                    <Wrap p={{ base: 4, md: 10 }}>
+                        <Photo url={photourls[0]}/>
+                        <Photo url={photourls[1]}/>
+                        <Photo url={photourls[2]}/>
+                        <Photo url={photourls[3]}/>
+                        <Photo url={photourls[4]}/>
+                        <Photo url={photourls[5]}/>
+                        <Photo url={photourls[6]}/>
+                        <Photo url={photourls[7]}/>
+                        <Photo url={photourls[8]}/>
+                        <Photo url={photourls[9]}/>
+                    </Wrap>
+                    <p>デフォルト画像</p>
+                    <Wrap p={{ base: 4, md: 10 }}>
+                        <Photo url={defaultphotourls[0]}/>
+                        <Photo url={defaultphotourls[1]}/>
+                        <Photo url={defaultphotourls[2]}/>
+                    </Wrap>
+                    </>
                 )}
             </Box>
             <Spacer />
