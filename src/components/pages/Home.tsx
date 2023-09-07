@@ -12,7 +12,7 @@ export const Home: FC = memo(() => {
     }
 
     return (
-        <Flex align="center" justify="center" height="100vh">
+        <Flex align="center" justify="center" m={5}>
             <Box bg="white" w="80%" p={4} borderRadius="md" shadow="md">
                 <Heading as="h1" size="lg" textAlign="center">サムネイルと要約生成</Heading>
                 <Divider my={4} />

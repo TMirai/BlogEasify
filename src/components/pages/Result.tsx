@@ -1,5 +1,5 @@
 //結果ページの大元
-import { Wrap, WrapItem, Box, Flex, Heading, Spacer} from "@chakra-ui/react";
+import { Wrap, WrapItem, Box, Flex, Heading, Spacer, Tab, Tabs, TabPanel, TabPanels, TabList} from "@chakra-ui/react";
 import { memo, FC, useEffect, useState } from "react";
 import { Photo } from "../organisms/result/Photo";
 import { Summary } from "../organisms/result/Summary";
@@ -13,6 +13,7 @@ export const Result= memo(() => {
     const [ inputtitle, setInputtitle ] = useRecoilState(Title);
     const [ photourls, setPhotourls ] = useState<string[]>([]);
     const [ defaultphotourls, setDefaultPhotourls ] = useState<string[]>([]);
+    const [ switchTab, setSwitchTab ] = useState<Number>(1); // 1: thumbnail 2: summary 
     const [ edit, setEdit ] = useRecoilState(Edit);
     const [ editurl, setEditurl ] =useRecoilState(Editurl);
 
@@ -34,38 +35,47 @@ export const Result= memo(() => {
 
     return (
         <Flex align="center" direction="column" justify="space-between">
-            <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
-                <Heading as="h1" size="lg" textAlign="center">サムネイル</Heading>
-                {edit ? (
-                    <>
-                        <PhotoEdit />
-                    </>
-                ):(
-                    <>
-                    <Wrap p={{ base: 4, md: 10 }}>
-                        <Photo url={photourls[0]}/>
-                        <Photo url={photourls[1]}/>
-                        <Photo url={photourls[2]}/>
-                        <Photo url={photourls[3]}/>
-                        <Photo url={photourls[4]}/>
-                        <Photo url={photourls[5]}/>
-                        <Photo url={photourls[6]}/>
-                        <Photo url={photourls[7]}/>
-                        <Photo url={photourls[8]}/>
-                        <Photo url={photourls[9]}/>
-                    </Wrap>
-                    <p>デフォルト画像</p>
-                    <Wrap p={{ base: 4, md: 10 }}>
-                        <Photo url={defaultphotourls[0]}/>
-                        <Photo url={defaultphotourls[1]}/>
-                        <Photo url={defaultphotourls[2]}/>
-                    </Wrap>
-                    </>
-                )}
-            </Box>
-            <Spacer />
-            <br />
-            <Summary />
+            <Tabs m={5}>
+                <TabList>
+                    <Tab fontSize='2xl' style={{width: '300px'}} onClick={() => setSwitchTab(1)}>サムネイル</Tab>
+                    <Tab fontSize='2xl' style={{width: '300px'}} onClick={() => setSwitchTab(2)}>要約</Tab>
+                </TabList>
+            </Tabs>
+            
+            {switchTab === 1 && 
+                <Box bg="white" p={4} borderRadius="md" shadow="md" width="80%">
+                    <Heading as="h1" size="lg" textAlign="center">サムネイル</Heading>
+                    {edit ? (
+                        <>
+                            <PhotoEdit />
+                        </>
+                    ):(
+                        <>
+                        <Wrap p={{ base: 4, md: 10 }}>
+                            <Photo url={photourls[0]}/>
+                            <Photo url={photourls[1]}/>
+                            <Photo url={photourls[2]}/>
+                            <Photo url={photourls[3]}/>
+                            <Photo url={photourls[4]}/>
+                            <Photo url={photourls[5]}/>
+                            <Photo url={photourls[6]}/>
+                            <Photo url={photourls[7]}/>
+                            <Photo url={photourls[8]}/>
+                            <Photo url={photourls[9]}/>
+                        </Wrap>
+                        <p>デフォルト画像</p>
+                        <Wrap p={{ base: 4, md: 10 }}>
+                            <Photo url={defaultphotourls[0]}/>
+                            <Photo url={defaultphotourls[1]}/>
+                            <Photo url={defaultphotourls[2]}/>
+                        </Wrap>
+                        </>
+                    )}
+                </Box>       
+            }
+            {switchTab === 2 && 
+                <Summary />
+            }
         </Flex>
     )
 })
