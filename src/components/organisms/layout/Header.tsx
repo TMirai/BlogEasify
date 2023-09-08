@@ -22,7 +22,7 @@ export const Header: FC<Props> = memo(({alias}) => {
             color="gray.50" 
             align="center" 
             justify="space-between"
-            padding={{ base: 3, md: 5 }}
+            padding={{ base: 3, md: 2 }}
             >
                 <Flex align="center" as="a" mr={8} _hover={{ cursor: "pointer" }}>
                     <Heading as="h1" fontSize={{base: "md", md: "lg"}}> <Link onClick={onClickHome}>BlogEasify</Link></Heading>
