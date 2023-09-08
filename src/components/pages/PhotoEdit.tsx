@@ -74,8 +74,6 @@ export const PhotoEdit = memo((props: Props) => {
         if(backValue === 'ari'){
             // 背景を描画
             ctx.fillStyle = backgroundColor;
-            console.log(canvas.width)
-            console.log(txw.width)
             ctx.fillRect(0, y-50, canvas.width, 80);
         }
         ctx.fillStyle = fontColor;
@@ -111,7 +109,7 @@ export const PhotoEdit = memo((props: Props) => {
                 <RadioGroup onChange={setBackValue} value={backValue}>
                     <Center>
                         <Stack direction='row'>
-                            <span style={{color: 'black'}}>文字背景:</span>
+                            <span style={{color: 'black', marginLeft: '14px'}}>文字背景:</span>
                             <Radio value='ari'><span style={{color: 'black'}}>あり</span></Radio>
                             <Radio value='nashi'><span style={{color: 'black'}}>なし</span></Radio>
                         </Stack>
@@ -120,7 +118,7 @@ export const PhotoEdit = memo((props: Props) => {
                 <RadioGroup onChange={setFontValue} value={fontValue}>    
                     <Center>           
                         <Stack direction='row'>
-                            <span style={{color: 'black'}}>フォント:</span>     
+                            <span style={{color: 'black', marginLeft: '74px'}}>フォント:</span>     
                             <Radio value='gothic'><span style={{color: 'black'}}>ゴシック体</span></Radio>
                             <Radio value='mincho'><span style={{color: 'black'}}>明朝体</span></Radio>
                         </Stack>
@@ -129,7 +127,7 @@ export const PhotoEdit = memo((props: Props) => {
                 <RadioGroup onChange={setPositionValue} value={positionvalue}>    
                     <Center>           
                         <Stack direction='row'>
-                            <span style={{color: 'black'}}>位置:</span>     
+                            <span style={{color: 'black', marginLeft: '90px'}}>位置:</span>     
                             <Radio value='up'><span style={{color: 'black'}}>上</span></Radio>
                             <Radio value='center'><span style={{color: 'black'}}>真ん中</span></Radio>
                             <Radio value='down'><span style={{color: 'black'}}>下</span></Radio>
