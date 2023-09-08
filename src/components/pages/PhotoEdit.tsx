@@ -134,7 +134,7 @@ export const PhotoEdit = memo((props: Props) => {
                         </Stack>
                     </Center>
                 </RadioGroup>
-                <p>
+                <p style={{textAlign: 'center', marginTop: '5px'}}>
                     {isGoTitle && <Button size='xs' bg="Gray" color="white" _hover={{ opacity: 0.8 }}>タイトル挿入</Button>}
                     {!isGoTitle && <Button size='xs' bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onClickInTitle}>タイトル挿入</Button>}
                     <Button size='xs' bg="teal.400" ml={3} color="white" _hover={{ opacity: 0.8 }} onClick={loadImage}>タイトル削除</Button>   
