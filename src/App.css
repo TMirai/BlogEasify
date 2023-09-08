@@ -46,3 +46,18 @@
     display: none;
   }
 }
+
+@media (max-width: 800px) {
+  .display_pc {
+    display: none;
+  }
+  .display_sp {
+    display: block;
+  }
+}
+
+@media (min-width: 801px) {
+  .display_sp {
+    display: none;
+  }
+}
