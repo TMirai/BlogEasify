@@ -58,11 +58,12 @@ export const PhotoEdit = memo((props: Props) => {
             fontColor = "#000";
             backgroundColor = '#ffffffCC';
         } 
+        console.log('canvas height:', canvas.height)
         let y = canvas.height/2;
         if(positionvalue == 'up'){
             y = 50;
         }else if(positionvalue == "down"){
-            y = 400;
+            y = canvas.height-30;
         }
 
         const txw = ctx.measureText(text);
@@ -94,7 +95,7 @@ export const PhotoEdit = memo((props: Props) => {
     return (
         <div>
             <div>
-                <canvas ref={canvasRef} id='preview' style={{width: '700px', height: '394px'}}></canvas>
+                <canvas ref={canvasRef} id='preview' style={{width: '700px', height: '394px'}} width='700px' height='394px' ></canvas>
             </div>
             <div style={{textAlign: 'right', marginTop: '10px'}}>
                 <RadioGroup onChange={setColorValue} value={colorvalue}>
