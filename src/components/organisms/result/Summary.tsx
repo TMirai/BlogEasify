@@ -42,7 +42,8 @@ export const Summary = memo(() => {
 
     useEffect(() => {
         (async() => {
-            const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-async'
+            const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-sqs'
+            // const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-async'
             const requestOptions ={
                 method: 'POST',
                 headers:{'Content-Type': 'application/json'},
