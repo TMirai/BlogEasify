@@ -17,7 +17,7 @@ export const Summary: FC<Props> = memo(({error, polling, value}) => {
     return(
         <>
         {polling? (
-            <Box bg="white" p={4} borderRadius="md" shadow="md" width="98%">
+            <Box bg="white" p={4} borderRadius="md" shadow="md" width="98%" style={{maxWidth: '1000px'}}>
                 <Heading as="h1" size="lg" textAlign="center">要約</Heading>
                 {/* <Wrap p={{ base: 4, md: 10 }}> */}
                     {/* <WrapItem> */}
