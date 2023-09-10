@@ -1,62 +1,18 @@
 //生成したサマリーを持ってきて表示するためのコンポーネント
 import { WrapItem, Box, Spinner, Heading, Wrap, useClipboard, Button, Stack, Flex, Alert, AlertIcon, AlertTitle, AlertDescription, Image, Img } from "@chakra-ui/react"
-import { memo, useEffect, useState } from "react"
+import { memo, useEffect, useState, FC } from "react"
 import { useRecoilState } from "recoil"
 import { Text } from "../../store/Text"
 import wait from "../../../../src/images/wait.png"
 
-export const Summary = memo(() => {
-    const [ polling, setPolling ] = useState<boolean>(false);
-    const [ error, setError ] = useState<boolean>(false);
-    const [ inputtext, setInputtext ] = useRecoilState(Text);
-    const { onCopy, value, setValue, hasCopied } = useClipboard("");
+type Props = {
+    error: boolean;
+    polling: boolean;
+    value: string;
+}
 
-    const checkS3Resolve = async (url:string) => {
-        const res = await fetch(url, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        });
-        return res
-      }
-    
-    const poling = async (url:string) => {
-        // ポーリング
-        const delay = (ms:number) => new Promise(res => setTimeout(res, ms))
-        let result = 403 //404
-        while (1) {
-            if (result == 403 || result == 404){
-                await delay(1500)
-                result = (await checkS3Resolve(url)).status;
-            }
-            else if(result == 200){
-                const a = await checkS3Resolve(url);
-                return a.json()
-            }else{
-                setError(true);
-            }
-        }
-    }
-    
-
-    useEffect(() => {
-        (async() => {
-            const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-sqs'
-            // const apiUrl = 'https://4p48gblcv2.execute-api.us-east-1.amazonaws.com/dev/summary/bedrock-async'
-            const requestOptions ={
-                method: 'POST',
-                headers:{'Content-Type': 'application/json'},
-                body: JSON.stringify({content: {inputtext}})
-            };
-            const res = await fetch(apiUrl, requestOptions); //バックエンドにPOSTしてる
-            const j = await res.json(); //POSTして返ってきたやつ
-            const sumurl = await poling(j); //要約のURL
-            setValue(sumurl);
-            setPolling(true);
-            
-        })();
-    },[]);
+export const Summary: FC<Props> = memo(({error, polling, value}) => {
+    const { onCopy, hasCopied } = useClipboard("");
 
     return(
         <>
