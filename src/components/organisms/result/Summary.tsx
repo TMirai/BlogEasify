@@ -26,7 +26,7 @@ export const Summary = memo(() => {
         const delay = (ms:number) => new Promise(res => setTimeout(res, ms))
         let result = 403 //404
         while (1) {
-            if (result == 403){
+            if (result == 403 || result == 404){
                 await delay(1500)
                 result = (await checkS3Resolve(url)).status;
             }
