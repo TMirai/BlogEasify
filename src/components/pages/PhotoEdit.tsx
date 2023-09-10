@@ -58,7 +58,7 @@ export const PhotoEdit = memo((props: Props) => {
             fontColor = "#000";
             backgroundColor = '#ffffffCC';
         } 
-        console.log('canvas height:', canvas.height)
+    
         let y = canvas.height/2;
         if(positionvalue == 'up'){
             y = 50;
