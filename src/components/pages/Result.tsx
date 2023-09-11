@@ -21,7 +21,7 @@ export const Result= memo(() => {
     const [ inputtext, setInputtext ] = useRecoilState(Text);
     const [ polling, setPolling ] = useState<boolean>(false);
     const [ error, setError ] = useState<boolean>(false);
-    const { onCopy, value, setValue, hasCopied } = useClipboard("");
+    const [ summary, setSummary ] = useState<string>('');
     
     const checkS3Resolve = async (url:string) => {
         const res = await fetch(url, {
@@ -73,7 +73,7 @@ export const Result= memo(() => {
             const res2 = await fetch(apiUrl2, requestOptions2);
             const j2 = await res2.json(); //POSTして返ってきたやつ
             const sumurl = await poling(j2); //要約のURL
-            setValue(sumurl);
+            setSummary(sumurl);
             setPolling(true);
         
         })();
@@ -95,7 +95,7 @@ export const Result= memo(() => {
                         <Photos photourls={photourls} defaultphotourls={defaultphotourls} />
                     }
                     {switchTab === 2 && 
-                        <Summary error={error} summary={value} polling={polling}  />
+                        <Summary error={error} summary={summary} polling={polling}  />
                     }
                 </Flex>
             </div>
