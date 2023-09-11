@@ -95,7 +95,7 @@ export const Result= memo(() => {
                         <Photos photourls={photourls} defaultphotourls={defaultphotourls} />
                     }
                     {switchTab === 2 && 
-                        <Summary error={error} value={value} polling={polling}  />
+                        <Summary error={error} summary={value} polling={polling}  />
                     }
                 </Flex>
             </div>

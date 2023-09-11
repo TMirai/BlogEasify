@@ -8,11 +8,15 @@ import wait from "../../../../src/images/wait.png"
 type Props = {
     error: boolean;
     polling: boolean;
-    value: string;
+    summary: string;
 }
 
-export const Summary: FC<Props> = memo(({error, polling, value}) => {
-    const { onCopy, hasCopied } = useClipboard("");
+export const Summary: FC<Props> = memo(({error, polling, summary}) => {
+    const { onCopy, hasCopied, value, setValue } = useClipboard("");
+        
+    useEffect(() => {
+        setValue(summary);
+    }, []);
 
     return(
         <>
@@ -23,7 +27,7 @@ export const Summary: FC<Props> = memo(({error, polling, value}) => {
                     {/* <WrapItem> */}
                         <Flex mb={2} alignItems="center" flexDirection="column">
                             {/* <Stack spacing={6} py={4} px={10} alignItems="center" flexDirection="column"> */}
-                                <p style={{marginTop: '20px'}}>{value}</p>
+                                <p style={{marginTop: '20px'}}>{summary}</p>
                                 <Button m={3} size='xs' bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onCopy}>{hasCopied ? "コピーしたよ!" : "コピー"}</Button>
                             {/* </Stack> */}
                         </Flex>
