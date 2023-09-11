@@ -81,7 +81,8 @@ export const PhotoEdit = memo((props: Props) => {
         ctx.textBaseline = 'center';
         ctx.textAlign = 'center';
         const x = canvas.width / 2;
-        ctx.fillText(text, x, y, canvas.width);
+        const title = '　' + text + '　'
+        ctx.fillText(title, x, y, canvas.width);
     }
 
     const onClickBack = () => {
