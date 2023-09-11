@@ -19,7 +19,7 @@ export const Home: FC = memo(() => {
                 <Stack spacing={6} py={4} px={10}>
                     <InputTitleArea input="タイトル"/>
                     <InputTextArea input="本文" />
-                    <Button bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onClickResult}>生成</Button>
+                    <Button bg="teal.400" color="white" _hover={{ opacity: 0.8 }} onClick={onClickResult}>Go</Button>
                 </Stack>
             </Box>
         </Flex>
