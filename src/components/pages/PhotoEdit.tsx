@@ -94,8 +94,8 @@ export const PhotoEdit = memo((props: Props) => {
 
     return (
         <div>
-            <div>
-                <canvas ref={canvasRef} id='preview' style={{width: '700px', height: '394px'}} width='700px' height='394px' ></canvas>
+            <div style={{marginTop: '44px'}}>
+                <canvas ref={canvasRef} id='preview' style={{width: '700px', height: '349px'}} width='700px' height='349px' ></canvas>
             </div>
             <div style={{textAlign: 'right', marginTop: '10px'}}>
                 <RadioGroup onChange={setColorValue} value={colorvalue}>
